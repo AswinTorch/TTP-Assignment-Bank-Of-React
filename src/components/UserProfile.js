@@ -5,12 +5,14 @@ class UserProfile extends Component {
   render() {
     return (
       <div>
-        <h1>User Profile</h1>
+        <h1 className="mt-4 mb-4">User Profile</h1>
 
         <div>Username: {this.props.userName}</div>
-        <div>Member Since: {this.props.memberSince}</div>
+        <div className="mb-4">Member Since: {this.props.memberSince}</div>
 
-        <Link to="/">Back to Home</Link>
+        <Link className="btn btn-dark" to="/">
+          Back to Home
+        </Link>
       </div>
     );
   }

@@ -18,6 +18,11 @@ class Home extends Component {
 
         <div className="mb-4">
           <span className="mr-3">
+            <Link className="btn btn-dark" to="/login">
+              Login
+            </Link>
+          </span>
+          <span className="mr-3">
             <Link className="btn btn-dark" to="/userProfile">
               User Profile
             </Link>

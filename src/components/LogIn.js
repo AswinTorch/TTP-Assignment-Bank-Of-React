@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 
 class LogIn extends Component {
   constructor(props) {
@@ -35,6 +35,15 @@ class LogIn extends Component {
 
     return (
       <div>
+        {/* Header */}
+        <div className="d-flex form-inline justify-content-between mt-4 mb-4">
+          <h1 className="">Login</h1>
+          <Link className="btn btn-dark" to="/">
+            Back to Home
+          </Link>
+        </div>
+
+        {/* Form */}
         <form onSubmit={this.handleSubmit}>
           <div>
             <label htmlFor="userName">User Name</label>
@@ -43,13 +52,18 @@ class LogIn extends Component {
               name="userName"
               onChange={this.handleChange}
               value={this.state.user.userName}
+              className="form-control mb-2"
             />
           </div>
           <div>
             <label htmlFor="password">Password</label>
-            <input type="password" name="password" />
+            <input
+              type="password"
+              name="password"
+              className="form-control mb-3"
+            />
           </div>
-          <button>Log In</button>
+          <button className="btn btn-primary">Log In</button>
         </form>
       </div>
     );
