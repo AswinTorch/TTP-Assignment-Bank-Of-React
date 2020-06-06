@@ -114,6 +114,7 @@ class App extends Component {
     const CreditsComponent = () => (
       <Credits
         accountBalance={this.state.accountBalance}
+        credits={this.state.credits}
         creditTotal={this.state.creditTotal}
       />
     );
@@ -121,6 +122,7 @@ class App extends Component {
     const DebitsComponent = () => (
       <Debits
         accountBalance={this.state.accountBalance}
+        debits={this.state.debits}
         debitTotal={this.state.debitTotal}
       />
     );
