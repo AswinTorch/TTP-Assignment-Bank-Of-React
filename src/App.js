@@ -73,6 +73,18 @@ class App extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
+    if (prevState.credits !== this.state.credits) {
+      let creditTotal = 0;
+      for (let obj of this.state.credits) {
+        creditTotal += obj.amount;
+      }
+      creditTotal = creditTotal.toFixed(2);
+
+      this.setState({
+        creditTotal,
+      });
+    }
+
     if (
       prevState.debitTotal !== this.state.debitTotal ||
       prevState.creditTotal !== this.state.creditTotal

@@ -19,9 +19,22 @@ class Credits extends Component {
     const updatedCredit = { ...this.state.credit };
     const inputField = e.target.name;
     const inputValue = e.target.value;
-    updatedCredit[inputField] = inputValue;
-
-    this.setState({ credit: updatedCredit });
+    if (inputField === "amount" && typeof Number(inputValue) == "number") {
+      updatedCredit.amount = Number(inputValue);
+      this.setState({ credit: updatedCredit });
+    } else if (inputField === "description") {
+      updatedCredit.description = inputValue;
+      this.setState({ credit: updatedCredit });
+    } else if (
+      inputField === "amount" &&
+      typeof Number(inputValue) != "number"
+    ) {
+      this.setState({
+        credit: {
+          amount: "",
+        },
+      });
+    }
   };
 
   handleSubmit = (e) => {
@@ -37,7 +50,7 @@ class Credits extends Component {
         <h1 className="mt-4 mb-3">Credits</h1>
         <AccountBalance accountBalance={this.props.accountBalance} />
         <div className="mb-4">
-          <strong>Debit Total</strong>:{" "}
+          <strong>Credit Total</strong>:{" "}
           <span className="badge badge-pill badge-success">
             ${this.props.creditTotal}
           </span>
@@ -55,6 +68,8 @@ class Credits extends Component {
               placeholder="Enter description"
             />
             <input
+              type="text"
+              pattern="[0-9]*"
               className="form-control mr-3"
               name="amount"
               value={this.state.credit.amount}
