@@ -17,12 +17,14 @@ class Debits extends Component {
         {/* View Debits */}
         <div className="row">
           {this.props.debits.map((debit) => {
+            let date = new Date(debit.date);
+
             return (
               <div className="col-4 mb-4" key={debit.id}>
                 <InfoCard
                   description={debit.description}
                   amount={debit.amount}
-                  date={debit.date}
+                  date={date.toLocaleDateString()}
                 />
               </div>
             );
