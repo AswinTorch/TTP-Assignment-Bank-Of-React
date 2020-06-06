@@ -15,6 +15,8 @@ class App extends Component {
       accountBalance: 0,
       debitTotal: 0,
       creditTotal: 0,
+      debits: [],
+      credits: [],
       currentUser: {
         userName: "bob_loblaw",
         memberSince: "08/23/99",
@@ -28,6 +30,11 @@ class App extends Component {
       .get("https://moj-api.herokuapp.com/debits")
       .then((response) => {
         let data = response.data;
+
+        this.setState({
+          debits: data,
+        });
+
         let debitTotal = 0;
 
         for (let obj of data) {
@@ -47,6 +54,10 @@ class App extends Component {
       .get("https://moj-api.herokuapp.com/credits")
       .then((response) => {
         let data = response.data;
+        this.setState({
+          credits: data,
+        });
+
         let creditTotal = 0;
         for (let obj of data) {
           creditTotal += obj.amount;

@@ -5,7 +5,7 @@ class Debits extends Component {
   render() {
     return (
       <div>
-        <h1>Debits</h1>
+        <h1 className="mt-4 mb-4">Debits</h1>
         <AccountBalance accountBalance={this.props.accountBalance} />
         <div>
           <strong>Debit Total</strong>:{" "}
