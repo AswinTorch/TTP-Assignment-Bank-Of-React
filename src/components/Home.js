@@ -16,7 +16,7 @@ class Home extends Component {
           <h1>Bank of React</h1>
         </div>
 
-        <div className="mb-4">
+        <div className="mb-4 form-inline">
           <span className="mr-3 mb-3">
             <Link className="btn btn-dark" to="/login">
               Login
