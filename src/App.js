@@ -18,8 +18,8 @@ class App extends Component {
       debits: [],
       credits: [],
       currentUser: {
-        userName: "bob_loblaw",
-        memberSince: "08/23/99",
+        userName: "clarkkent",
+        memberSince: "04/08/98",
       },
     };
   }
@@ -92,6 +92,15 @@ class App extends Component {
     this.setState({ currentUser: newUser });
   };
 
+  addCredit = (credit) => {
+    credit.id = (Math.random() * 300).toString();
+    const date = new Date();
+    credit.date = date.toISOString();
+    const newCredits = [credit, ...this.state.credits];
+
+    this.setState({ credits: newCredits });
+  };
+
   render() {
     const HomeComponent = () => (
       <Home accountBalance={this.state.accountBalance} />
@@ -116,6 +125,7 @@ class App extends Component {
         accountBalance={this.state.accountBalance}
         credits={this.state.credits}
         creditTotal={this.state.creditTotal}
+        addCredit={this.addCredit}
       />
     );
 

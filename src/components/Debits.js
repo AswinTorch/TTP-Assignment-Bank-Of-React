@@ -6,6 +6,7 @@ class Debits extends Component {
   render() {
     return (
       <div>
+        {/* Header */}
         <h1 className="mt-4 mb-4">Debits</h1>
         <AccountBalance accountBalance={this.props.accountBalance} />
         <div className="mb-4">
@@ -14,7 +15,11 @@ class Debits extends Component {
             ${this.props.debitTotal}
           </span>
         </div>
+
         {/* View Debits */}
+        <div className="mt-4 mb-3">
+          <h3>History</h3>
+        </div>
         <div className="row">
           {this.props.debits.map((debit) => {
             let date = new Date(debit.date);
