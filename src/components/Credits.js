@@ -65,15 +65,13 @@ class Credits extends Component {
               placeholder="Enter description"
             />
             <input
-              type="text"
-              pattern="[0-9]*"
               className="form-control mr-3 mb-2"
               name="amount"
               value={this.state.credit.amount}
               onChange={this.handleChange}
               placeholder="Enter amount"
             />
-            <button className="btn btn-primary">Add</button>
+            <button className="btn btn-primary mb-2">Add</button>
           </form>
         </div>
 
@@ -85,7 +83,7 @@ class Credits extends Component {
           {this.props.credits.map((credit) => {
             let date = new Date(credit.date);
             return (
-              <div className="col-4 mb-4" key={credit.id}>
+              <div className="col-lg-4 col-sm-6 mb-4" key={credit.id}>
                 <InfoCard
                   description={credit.description}
                   amount={credit.amount}

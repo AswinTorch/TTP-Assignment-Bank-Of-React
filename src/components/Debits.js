@@ -71,7 +71,7 @@ class Debits extends Component {
               onChange={this.handleChange}
               placeholder="Enter amount"
             />
-            <button className="btn btn-primary">Add</button>
+            <button className="btn btn-primary mb-2">Add</button>
           </form>
         </div>
 
@@ -84,7 +84,7 @@ class Debits extends Component {
             let date = new Date(debit.date);
 
             return (
-              <div className="col-4 mb-4" key={debit.id}>
+              <div className="col-lg-4 col-sm-6 mb-4" key={debit.id}>
                 <InfoCard
                   description={debit.description}
                   amount={debit.amount}

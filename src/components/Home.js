@@ -17,22 +17,22 @@ class Home extends Component {
         </div>
 
         <div className="mb-4">
-          <span className="mr-3">
+          <span className="mr-3 mb-3">
             <Link className="btn btn-dark" to="/login">
               Login
             </Link>
           </span>
-          <span className="mr-3">
+          <span className="mr-3 mb-3">
             <Link className="btn btn-dark" to="/userProfile">
               User Profile
             </Link>
           </span>
-          <span className="mr-3">
+          <span className="mr-3 mb-3">
             <Link className="btn btn-dark" to="/credits">
               Credits
             </Link>
           </span>
-          <span className="mr-3">
+          <span className="mr-3 mb-3">
             <Link className="btn btn-dark" to="/debits">
               Debits
             </Link>
