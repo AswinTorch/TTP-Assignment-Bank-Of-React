@@ -2,7 +2,11 @@ import React, { Component } from "react";
 
 class AccountBalance extends Component {
   render() {
-    return <div>Balance: {this.props.accountBalance}</div>;
+    return (
+      <div>
+        <strong>Balance</strong>: ${this.props.accountBalance}
+      </div>
+    );
   }
 }
 
