@@ -4,7 +4,10 @@ class AccountBalance extends Component {
   render() {
     return (
       <div>
-        <strong>Balance</strong>: ${this.props.accountBalance}
+        <strong>Account Balance</strong>:{" "}
+        <span className="badge badge-pill badge-light">
+          ${this.props.accountBalance}
+        </span>
       </div>
     );
   }
