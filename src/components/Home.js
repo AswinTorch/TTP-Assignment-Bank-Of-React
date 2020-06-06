@@ -18,13 +18,19 @@ class Home extends Component {
 
         <div className="mb-4">
           <span className="mr-3">
-            <Link to="/userProfile">User Profile</Link>
+            <Link className="btn btn-dark" to="/userProfile">
+              User Profile
+            </Link>
           </span>
           <span className="mr-3">
-            <Link to="/credits">Credits</Link>
+            <Link className="btn btn-dark" to="/credits">
+              Credits
+            </Link>
           </span>
           <span className="mr-3">
-            <Link to="/debits">Debits</Link>
+            <Link className="btn btn-dark" to="/debits">
+              Debits
+            </Link>
           </span>
         </div>
 

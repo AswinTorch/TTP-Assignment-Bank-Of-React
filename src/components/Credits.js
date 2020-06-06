@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import AccountBalance from "./AccountBalance";
 import InfoCard from "./InfoCard";
+import { Link } from "react-router-dom";
 
 class Credits extends Component {
   constructor(props) {
@@ -19,22 +20,12 @@ class Credits extends Component {
     const updatedCredit = { ...this.state.credit };
     const inputField = e.target.name;
     const inputValue = e.target.value;
-    if (inputField === "amount" && typeof Number(inputValue) == "number") {
+
+    updatedCredit[inputField] = inputValue;
+    if (inputField === "amount") {
       updatedCredit.amount = Number(inputValue);
-      this.setState({ credit: updatedCredit });
-    } else if (inputField === "description") {
-      updatedCredit.description = inputValue;
-      this.setState({ credit: updatedCredit });
-    } else if (
-      inputField === "amount" &&
-      typeof Number(inputValue) != "number"
-    ) {
-      this.setState({
-        credit: {
-          amount: "",
-        },
-      });
     }
+    this.setState({ credit: updatedCredit });
   };
 
   handleSubmit = (e) => {
@@ -47,7 +38,13 @@ class Credits extends Component {
     return (
       <div>
         {/* Header */}
-        <h1 className="mt-4 mb-3">Credits</h1>
+        <div className="d-flex form-inline justify-content-between mt-4 mb-4">
+          <h1 className="">Credits</h1>
+          <Link className="btn btn-dark" to="/">
+            Back to Home
+          </Link>
+        </div>
+
         <AccountBalance accountBalance={this.props.accountBalance} />
         <div className="mb-4">
           <strong>Credit Total</strong>:{" "}

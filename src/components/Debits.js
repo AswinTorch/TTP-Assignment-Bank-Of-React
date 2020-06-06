@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import AccountBalance from "./AccountBalance";
 import InfoCard from "./InfoCard";
+import { Link } from "react-router-dom";
 
 class Debits extends Component {
   constructor(props) {
@@ -37,7 +38,13 @@ class Debits extends Component {
     return (
       <div>
         {/* Header */}
-        <h1 className="mt-4 mb-4">Debits</h1>
+        <div className="d-flex form-inline justify-content-between mt-4 mb-4">
+          <h1 className="">Debits</h1>
+          <Link className="btn btn-dark" to="/">
+            Back to Home
+          </Link>
+        </div>
+
         <AccountBalance accountBalance={this.props.accountBalance} />
         <div className="mb-4">
           <strong>Debit Total</strong>:{" "}
