@@ -58,14 +58,14 @@ class Debits extends Component {
           <h3 className="mb-3">Add Debit Listing</h3>
           <form onSubmit={this.handleSubmit} className="form-inline">
             <input
-              className="form-control mr-3"
+              className="form-control mr-3 mb-2"
               name="description"
               value={this.state.debit.description}
               onChange={this.handleChange}
               placeholder="Enter description"
             />
             <input
-              className="form-control mr-3"
+              className="form-control mr-3 mb-2"
               name="amount"
               value={this.state.debit.amount}
               onChange={this.handleChange}

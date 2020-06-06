@@ -58,7 +58,7 @@ class Credits extends Component {
           <h3 className="mb-3">Add Credit Listing</h3>
           <form onSubmit={this.handleSubmit} className="form-inline">
             <input
-              className="form-control mr-3"
+              className="form-control mr-3 mb-2"
               name="description"
               value={this.state.credit.description}
               onChange={this.handleChange}
@@ -67,7 +67,7 @@ class Credits extends Component {
             <input
               type="text"
               pattern="[0-9]*"
-              className="form-control mr-3"
+              className="form-control mr-3 mb-2"
               name="amount"
               value={this.state.credit.amount}
               onChange={this.handleChange}
