@@ -3,9 +3,11 @@ import React from "react";
 const InfoCard = ({ description, amount, date }) => {
   return (
     <div className="card">
-      <p>{description}</p>
-      <p>${amount}</p>
-      <p>{date}</p>
+      <div className="card-header">{description}</div>
+      <ul className="list-group list-group-flush">
+        <li className="list-group-item">${amount}</li>
+        <li className="list-group-item">{date}</li>
+      </ul>
     </div>
   );
 };

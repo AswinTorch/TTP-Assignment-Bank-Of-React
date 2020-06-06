@@ -18,12 +18,13 @@ class Debits extends Component {
         <div className="row">
           {this.props.debits.map((debit) => {
             return (
-              <InfoCard
-                key={debit.id}
-                description={debit.description}
-                amount={debit.amount}
-                date={debit.date}
-              />
+              <div className="col-4 mb-4" key={debit.id}>
+                <InfoCard
+                  description={debit.description}
+                  amount={debit.amount}
+                  date={debit.date}
+                />
+              </div>
             );
           })}
         </div>
