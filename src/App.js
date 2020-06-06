@@ -73,6 +73,7 @@ class App extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
+    // Looks for change in credits and updates totals as necessary
     if (prevState.credits !== this.state.credits) {
       let creditTotal = 0;
       for (let obj of this.state.credits) {
@@ -85,6 +86,20 @@ class App extends Component {
       });
     }
 
+    // Looks for change in debits and updates totals as necessary
+    if (prevState.debits !== this.state.debits) {
+      let debitTotal = 0;
+      for (let obj of this.state.debits) {
+        debitTotal += obj.amount;
+      }
+      debitTotal = debitTotal.toFixed(2);
+
+      this.setState({
+        debitTotal,
+      });
+    }
+
+    // Looks for change in credit or debit totals and updates totals as necessary
     if (
       prevState.debitTotal !== this.state.debitTotal ||
       prevState.creditTotal !== this.state.creditTotal
@@ -111,6 +126,15 @@ class App extends Component {
     const newCredits = [credit, ...this.state.credits];
 
     this.setState({ credits: newCredits });
+  };
+
+  addDebit = (debit) => {
+    debit.id = (Math.random() * 300).toString();
+    const date = new Date();
+    debit.date = date.toISOString();
+    const newDebits = [debit, ...this.state.debits];
+
+    this.setState({ debits: newDebits });
   };
 
   render() {
@@ -146,6 +170,7 @@ class App extends Component {
         accountBalance={this.state.accountBalance}
         debits={this.state.debits}
         debitTotal={this.state.debitTotal}
+        addDebit={this.addDebit}
       />
     );
 

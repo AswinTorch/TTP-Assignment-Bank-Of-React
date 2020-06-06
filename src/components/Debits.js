@@ -3,6 +3,36 @@ import AccountBalance from "./AccountBalance";
 import InfoCard from "./InfoCard";
 
 class Debits extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      debit: {
+        id: "",
+        description: "",
+        amount: "",
+        date: "",
+      },
+    };
+  }
+
+  handleChange = (e) => {
+    const updatedDebit = { ...this.state.debit };
+    const inputField = e.target.name;
+    const inputValue = e.target.value;
+
+    updatedDebit[inputField] = inputValue;
+    if (inputField === "amount") {
+      updatedDebit.amount = Number(inputValue);
+    }
+    this.setState({ debit: updatedDebit });
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Add button clicked");
+    this.props.addDebit(this.state.debit);
+  };
+
   render() {
     return (
       <div>
@@ -14,6 +44,28 @@ class Debits extends Component {
           <span className="badge badge-pill badge-danger">
             ${this.props.debitTotal}
           </span>
+        </div>
+
+        {/* Add Debit Listing */}
+        <div className="mt-4 mb-4">
+          <h3 className="mb-3">Add Debit Listing</h3>
+          <form onSubmit={this.handleSubmit} className="form-inline">
+            <input
+              className="form-control mr-3"
+              name="description"
+              value={this.state.debit.description}
+              onChange={this.handleChange}
+              placeholder="Enter description"
+            />
+            <input
+              className="form-control mr-3"
+              name="amount"
+              value={this.state.debit.amount}
+              onChange={this.handleChange}
+              placeholder="Enter amount"
+            />
+            <button className="btn btn-primary">Add</button>
+          </form>
         </div>
 
         {/* View Debits */}
