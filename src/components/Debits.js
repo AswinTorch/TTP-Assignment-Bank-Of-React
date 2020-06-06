@@ -7,6 +7,12 @@ class Debits extends Component {
       <div>
         <h1>Debits</h1>
         <AccountBalance accountBalance={this.props.accountBalance} />
+        <div>
+          <strong>Debit Total</strong>:{" "}
+          <span className="badge badge-pill badge-danger">
+            ${this.props.debitTotal}
+          </span>
+        </div>
       </div>
     );
   }

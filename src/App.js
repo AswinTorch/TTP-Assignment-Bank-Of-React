@@ -101,11 +101,17 @@ class App extends Component {
     );
 
     const CreditsComponent = () => (
-      <Credits accountBalance={this.state.accountBalance} />
+      <Credits
+        accountBalance={this.state.accountBalance}
+        creditTotal={this.state.creditTotal}
+      />
     );
 
     const DebitsComponent = () => (
-      <Debits accountBalance={this.state.accountBalance} />
+      <Debits
+        accountBalance={this.state.accountBalance}
+        debitTotal={this.state.debitTotal}
+      />
     );
 
     return (
