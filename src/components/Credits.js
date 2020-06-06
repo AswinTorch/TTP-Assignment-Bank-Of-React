@@ -1,0 +1,106 @@
+import React, { Component } from "react";
+import AccountBalance from "./AccountBalance";
+import InfoCard from "./InfoCard";
+
+class Credits extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      credit: {
+        id: "",
+        description: "",
+        amount: "",
+        date: "",
+      },
+    };
+  }
+
+  handleChange = (e) => {
+    const updatedCredit = { ...this.state.credit };
+    const inputField = e.target.name;
+    const inputValue = e.target.value;
+    if (inputField === "amount" && typeof Number(inputValue) == "number") {
+      updatedCredit.amount = Number(inputValue);
+      this.setState({ credit: updatedCredit });
+    } else if (inputField === "description") {
+      updatedCredit.description = inputValue;
+      this.setState({ credit: updatedCredit });
+    } else if (
+      inputField === "amount" &&
+      typeof Number(inputValue) != "number"
+    ) {
+      this.setState({
+        credit: {
+          amount: "",
+        },
+      });
+    }
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Add button clicked");
+    this.props.addCredit(this.state.credit);
+  };
+
+  render() {
+    return (
+      <div>
+        {/* Header */}
+        <h1 className="mt-4 mb-3">Credits</h1>
+        <AccountBalance accountBalance={this.props.accountBalance} />
+        <div className="mb-4">
+          <strong>Credit Total</strong>:{" "}
+          <span className="badge badge-pill badge-success">
+            ${this.props.creditTotal}
+          </span>
+        </div>
+
+        {/* Add Credit Listing */}
+        <div className="mt-4 mb-4">
+          <h3 className="mb-3">Add Credit Listing</h3>
+          <form onSubmit={this.handleSubmit} className="form-inline">
+            <input
+              className="form-control mr-3"
+              name="description"
+              value={this.state.credit.description}
+              onChange={this.handleChange}
+              placeholder="Enter description"
+            />
+            <input
+              type="text"
+              pattern="[0-9]*"
+              className="form-control mr-3"
+              name="amount"
+              value={this.state.credit.amount}
+              onChange={this.handleChange}
+              placeholder="Enter amount"
+            />
+            <button className="btn btn-primary">Add</button>
+          </form>
+        </div>
+
+        {/* View Credits */}
+        <div className="mt-4 mb-3">
+          <h3>History</h3>
+        </div>
+        <div className="row">
+          {this.props.credits.map((credit) => {
+            let date = new Date(credit.date);
+            return (
+              <div className="col-4 mb-4" key={credit.id}>
+                <InfoCard
+                  description={credit.description}
+                  amount={credit.amount}
+                  date={date.toLocaleDateString()}
+                />
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    );
+  }
+}
+
+export default Credits;
