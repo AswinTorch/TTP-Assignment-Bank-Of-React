@@ -11,12 +11,23 @@ class Home extends Component {
             src="http://1.bp.blogspot.com/-nXgPhmECfAQ/T5_AMJI1V0I/AAAAAAAAALk/91cvlzlN78Q/s1600/Bank.jpg"
             alt="bank"
             style={{ width: 50, height: 50 }}
-            className="mr-2"
+            className="mr-3"
           />
           <h1>Bank of React</h1>
         </div>
 
-        <Link to="/userProfile">User Profile</Link>
+        <div className="mb-4">
+          <span className="mr-3">
+            <Link to="/userProfile">User Profile</Link>
+          </span>
+          <span className="mr-3">
+            <Link to="/credits">Credits</Link>
+          </span>
+          <span className="mr-3">
+            <Link to="/debits">Debits</Link>
+          </span>
+        </div>
+
         <AccountBalance accountBalance={this.props.accountBalance} />
       </div>
     );

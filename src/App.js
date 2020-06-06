@@ -5,6 +5,8 @@ import Home from "./components/Home";
 import UserProfile from "./components/UserProfile";
 import LogIn from "./components/LogIn";
 import axios from "axios";
+import Debits from "./components/Debits";
+import Credits from "./components/Credits";
 
 class App extends Component {
   constructor(props) {
@@ -98,12 +100,22 @@ class App extends Component {
       />
     );
 
+    const CreditsComponent = () => (
+      <Credits accountBalance={this.state.accountBalance} />
+    );
+
+    const DebitsComponent = () => (
+      <Debits accountBalance={this.state.accountBalance} />
+    );
+
     return (
       <Router>
         <div className="container">
           <Route exact path="/" render={HomeComponent} />
           <Route exact path="/userProfile" render={UserProfileComponent} />
           <Route exact path="/login" render={LogInComponent} />
+          <Route exact path="/credits" render={CreditsComponent} />
+          <Route exact path="/debits" render={DebitsComponent} />
         </div>
       </Router>
     );
