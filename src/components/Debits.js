@@ -63,10 +63,15 @@ class Debits extends Component {
               value={this.state.debit.description}
               onChange={this.handleChange}
               placeholder="Enter description"
+              required
             />
             <input
               className="form-control mr-3 mb-2"
               name="amount"
+              type="number"
+              min="0"
+              step="0.01"
+              required
               value={this.state.debit.amount}
               onChange={this.handleChange}
               placeholder="Enter amount"
